@@ -1,5 +1,11 @@
 import sys
+import os.path
 
-# TODO: Error handling for empty target file argument
-print("Song name: "+sys.argv[1])
-print("Identifying song...")
+try:
+    print("Song name: "+sys.argv[1])
+except IndexError:
+    print("Error: Need to provide target file path!")
+    sys.exit()
+
+target = os.path.join(os.getcwd(),sys.argv[1])
+print("Full file path: "+target)
